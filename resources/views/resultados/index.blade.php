@@ -145,9 +145,19 @@
                                     <select class="form-control" name="informe">
                                     <option value="">Seleccione</option>
                                     <option value="ECO TV GEST INICIAL.docx">ECO TV GEST INICIAL</option>
+                                    <option value="ECOGRAFIA DE 29 SEMANAS.docx">ECOGRAFIA DE 29 SEMANAS</option>
                                     <option value="ECOGRAFIA DE MAMAS NORMAL.docx">ECOGRAFIA DE MAMAS NORMAL</option>
                                     <option value="ECOGRAFIA OBSTÉTRICA.docx">ECOGRAFIA OBSTÉTRICA</option>
                                     <option value="ECOGRAFIA TRANSVAGINAL.docx">ECOGRAFIA TRANSVAGINAL</option>
+
+                                    <option value="II MORFOLOGICA.docx">II MORFOLOGICA</option>
+                                    <option value="INFORME ECO Abdominal Gastritis-aerocolia..docx">INFORME ECO Abdominal Gastritis-aerocolia.</option>
+                                    <option value="INFORME ECO Abdominal Litiasis.docx">INFORME ECO Abdominal Litiasis</option>
+                                    <option value="INFORME ECO Próstata  HP.docx">INFORME ECO Próstata  HP</option>
+                                    <option value="NECO PART BLAND HERNIA ING BILAT.docx">NECO PART BLAND HERNIA ING BILAT</option>
+                                    <option value="NECO PART BLAND LIPOM AXILA.docx">NECO PART BLAND LIPOM AXILA</option>
+                                    <option value="NECO RIÑ LIT BILAT.docx">NECO RIÑ LIT BILAT</option>
+
                                 
                                 </select>
 
