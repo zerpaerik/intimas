@@ -49,16 +49,10 @@
     <p style="margin-top: -10px;"><strong>Dirección: AV.Metroplitana 109 Ate (2DO PISO)</strong></p>
 		<p style="margin-top: -20px;"><strong>Teléfono: 968 481 100</strong></p>
 	
-
-
-
     <p style="margin-top: -20px;"><strong>________________________________________________________</strong>  </p>
     <p style="margin-top: -15px;font-size: 14px;text-align: center;"><strong>RECIBO PAGO A CUENTA Nº:0000{{$ticket->id}}</strong></p>
     <p style="margin-top: -30px;"><strong>________________________________________________________</strong>  </p>
-
     <p style="margin-left: -80px;font-size: 14px;"><strong>FECHA:</strong> {{ date('d/m/Y h:i a', strtotime($ticket->created_at)) }}</p>
-
-	
 
 	</div>
     <br><br>
