@@ -169,6 +169,12 @@ Route::get('productos-usados-reversar1-{id}', 'ProductosUsadosController@reversa
 Route::get('productos-usados-edit-{id}', 'ProductosUsadosController@edit')->name('productosu.edit');
 Route::post('productosu/edit', 'ProductosUsadosController@update');
 
+Route::get('ventas', 'VentasController@index')->name('ventas.index');
+Route::get('ventas-create', 'VentasController@create')->name('ventas.create')->middleware('auth');
+Route::post('ventas/create', 'VentasController@store')->middleware('auth');
+Route::get('ventas-delete-{id}','VentasController@delete');
+Route::get('ventas-ticket-{id}','VentasController@ticket');
+
 Route::get('crear-sesion', 'UserController@sesion')->name('sesion.create')->middleware('auth');
 
 

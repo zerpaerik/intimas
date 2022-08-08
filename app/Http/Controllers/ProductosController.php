@@ -255,7 +255,6 @@ class ProductosController extends Controller
     public function storeing(Request $request)
     {
 
-        dd($request->all());
 
 
                 $ingreso = new Ingresos();
