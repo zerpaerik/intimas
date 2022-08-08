@@ -368,6 +368,8 @@ class CajaController extends Controller
             $consultas->monto = 0;
         }
 
+        
+
         $metodos = Creditos::where('origen', 'METODO')
         ->where('sede','=', $request->session()->get('sede'))
         ->whereRaw("created_at >= ? AND created_at <= ?", 
