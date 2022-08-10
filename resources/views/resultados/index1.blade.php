@@ -143,7 +143,11 @@
                         <form action="{{'resultados-asocl-' .$an->id}}" method="get">
                                     <select class="form-control" name="informe">
                                     <option value="">Seleccione</option>
-                                 
+                                    <option value="FORMATO BACTERIURIA.docx">FORMATO BACTERIURIA</option>
+                                    <option value="FORMATO Hemoglobina rapida.docx">FORMATO Hemoglobina rapida</option>
+                                    <option value="FORMATO VIH-SIFILIS-HEPAT B.docx">FORMATO VIH-SIFILIS-HEPAT B</option>
+                                    <option value="HCG1.docx">HCG1</option>
+
                                     <option value="SUB UNIDAD NEGATIVO.docx">SUB UNIDAD NEGATIVO</option>
                                     <option value="SUB UNIDAD POSITIVO.docx">SUB UNIDAD POSITIVO</option>
                                    
