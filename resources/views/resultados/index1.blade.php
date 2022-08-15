@@ -147,12 +147,8 @@
                                     <option value="FORMATO Hemoglobina rapida.docx">FORMATO Hemoglobina rapida</option>
                                     <option value="FORMATO VIH-SIFILIS-HEPAT B.docx">FORMATO VIH-SIFILIS-HEPAT B</option>
                                     <option value="HCG1.docx">HCG1</option>
-
                                     <option value="SUB UNIDAD NEGATIVO.docx">SUB UNIDAD NEGATIVO</option>
                                     <option value="SUB UNIDAD POSITIVO.docx">SUB UNIDAD POSITIVO</option>
-                                   
-                                   
-                          
                                     </select>
 
                                 </td>
