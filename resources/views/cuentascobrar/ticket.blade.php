@@ -29,7 +29,6 @@
         border:solid red;
       }
     </style>
-
     <meta charset="utf-8">
 
   </head>
@@ -38,8 +37,8 @@
 
     <br><br>
 
-    <div class="" style="font-size: 35px; text-align: center;margin-bottom: 15px;">
-		<img src="/var/www/html/intimas/public/logo_negro.jpg"  style="width: 40%; color: black;"/>
+  	<div class="" style="font-size: 35px; text-align: center;margin-bottom: 15px;">
+		<img src="/var/www/html/mt/intimas/public/logo_negro.jpg"  style="width: 40%; color: black;"/>
 	</div>
 
     <div  style="font-size: 15px; text-align: center;margin-bottom:-60px;margin-top: -30px;">
