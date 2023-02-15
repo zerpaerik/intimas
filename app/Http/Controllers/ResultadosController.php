@@ -6,6 +6,7 @@ use App\Analisis;
 use App\Clientes;
 use App\Tiempo;
 use App\Material;
+use App\Anotaciones;
 use App\Pacientes;
 use App\Servicios;
 use App\User;
