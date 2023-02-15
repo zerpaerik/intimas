@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Intimas | Admin</title>
+  <title>MadreTeresa | Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -125,6 +125,11 @@
                     <td>{{$an->nameo}} {{$an->lasto}}</td>
 
                     <td>
+                    <a class="btn btn-primary btn-sm" id="{{$an->id_atencion}}" onclick="viewh1(this)">
+                                    <i class="fas fa-eye">
+                                    </i>
+                                    Anotaciòn
+                                </a>
                     @if($an->estatus == 2)
                     <p>APLICADO POR: {{$an->usuario_aplica}} </p>
                     @else
@@ -168,6 +173,23 @@
   </div>
   </div>
   <div class="modal fade" id="viewTicket">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            </div>
+           
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+
+      <div class="modal fade" id="viewTicket1">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -244,6 +266,26 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+
+<script type="text/javascript">
+		function viewh1(e){
+		    var id = $(e).attr('id');
+		    
+		    $.ajax({
+		        type: "GET",
+		        url: "/resultados/anotar/"+id,
+		        success: function (data) {
+		            $("#viewTicket1 .modal-body").html(data);
+		            $('#viewTicket1').modal('show');
+		        },
+		        error: function (data) {
+		            console.log('Error:', data);
+		        }
+		    });
+		}
+
+	
+	</script>
 
 <script type="text/javascript">
 		function viewh(e){

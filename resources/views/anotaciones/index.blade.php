@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Intimas | Admin</title>
+  <title>MadreTeresa | Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -57,12 +57,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Resultados Por Hacer Servicio</h1>
+            <h1 class="m-0 text-dark">Anotaciones</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Resultados Por Hacer Servicio</li>
+              <li class="breadcrumb-item active">Anotaciones</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -76,7 +76,7 @@
       <div class="container-fluid">
       <div class="card">
               <div class="card-header">
-              <form method="get" action="resultados">					
+              <form method="get" action="anotaciones">					
                   <label for="exampleInputEmail1">Filtros de Busqueda</label>
 
                     <div class="row">
@@ -104,121 +104,55 @@
                 <table id="" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                  <th>id</th>
                     <th>Fecha</th>
-                    <th>Pac.</th>
-                    <th>Origen</th>
-                    <th>Det.</th>
-                    <th>Informe.</th>
+                    <th>Paciente</th>
+                    <th>Telefono</th>
+                    <th>Indicaciones</th>
                     <th>Acciones</th>
                   </tr>
                   </thead>
                   <tbody>
 
-                  @foreach($resultados as $an)
+                  @foreach($anotaciones as $an)
                   <tr>
-                  <td>{{$an->id}}</td>
-                   <td>{{$an->created_at}}</td>
-                    @if($an->monto > $an->abono)
-                    <td style="background: yellow;" title="ESTE PACIENTE TIENE DEUDA PENDIENTE">{{$an->apellidos}} {{$an->nombres}}</td>
-                    @else
-                    <td>{{$an->apellidos}} {{$an->nombres}}</td>
-                    @endif                  
-                    <td>{{$an->lastname}} {{$an->name}}</td>
-                    <td>{{$an->servicio}}</td>
-                    <td>
-
-                      @if($an->informe) 
-
-                      <a href="resultados-desoc-{{$an->id}}" class="btn btn-danger">Reversar</a>
-	
-                      <a href="/modelo-informe-{{$an->id}}-{{$an->informe}}" class="btn btn-primary" target="_blank">Descargar Modelo</a>
-
-                      <a href="resultados-guardar-{{$an->id}}" class="btn btn-success">Adjuntar Informe</a>
-
-
-                      @else
-
-
-
-                        <form action="{{'resultados-asoc-' .$an->id}}" method="get">
-                                    <select class="form-control" name="informe">
-                                    <option value="">Seleccione</option>
-                                    <option value="ECO TV GEST INICIAL.docx">ECO TV GEST INICIAL</option>
-                                    <option value="ECOGRAFIA ABDOMINAL TOTAL.docx">ECOGRAFIA ABDOMINAL TOTAL</option>
-                                  
-
-                                    <option value="ECOGRAFIA DE 29 SEMANAS.docx">ECOGRAFIA DE 29 SEMANAS</option>
-                                    <option value="ECOGRAFIA DE MAMAS NORMAL.docx">ECOGRAFIA DE MAMAS NORMAL</option>
-                                    <option value="ECOGRAFIA OBSTÉTRICA.docx">ECOGRAFIA OBSTÉTRICA</option>
-                                    <option value="ECOGRAFIA TRANSVAGINAL.docx">ECOGRAFIA TRANSVAGINAL</option>
-
-                                    <option value="II MORFOLOGICA.docx">II MORFOLOGICA</option>
-                                    <option value="INFORME ECO Abdominal Gastritis-aerocolia..docx">INFORME ECO Abdominal Gastritis-aerocolia.</option>
-                                    <option value="INFORME ECO Abdominal Litiasis.docx">INFORME ECO Abdominal Litiasis</option>
-                                    <option value="INFORME ECO Próstata  HP.docx">INFORME ECO Próstata  HP</option>
-                                    <option value="INFORME ECO Abdominalquiste hepatico.docx">INFORME ECO Abdominalquiste hepatico</option>
-                                    <option value="INFORME ECO Renal  ARENILLA.docx">INFORME ECO Renal  ARENILLA</option>
-                                    <option value="INFORME ECO VIAS URINARIAS.docx">INFORME ECO VIAS URINARIAS</option>
-                                    <option value="NECO PART BLAND HERNIA ING BILAT.docx">NECO PART BLAND HERNIA ING BILAT</option>
-                                    <option value="NECO PART BLAND LIPOM AXILA.docx">NECO PART BLAND LIPOM AXILA</option>
-                                    <option value="NECO RIÑ LIT BILAT.docx">NECO RIÑ LIT BILAT</option>
-
-                                
-                                </select>
-
-                                </td>
-                             
-
-                                <td>
-
-                                  <input type="hidden" name="id" value="{{$an->id}}">
-
-
-                                  <input type="submit" class="btn btn-success" value="Asociar">
-                                  <a class="btn btn-primary btn-sm" id="{{$an->id_atencion}}" onclick="viewh(this)">
+                    <td>{{date('d-M-y', strtotime($an->fecha))}}</td>
+                    <td>{{$an->nombres}} {{$an->apellidos}}</td>
+                    <td>{{$an->telefono}}</td>
+                    <td>Registrado Por: {{$an->name}} {{$an->lastname}} 
+                        <a class="btn btn-primary btn-sm" id="{{$an->id}}" onclick="viewhi(this)">
                                     <i class="fas fa-eye">
                                     </i>
-                                    Anotaciòn
-                                </a>
-                                  </td>
-
-                              </tr>
-                              </form>
-                              @endif
-
-
-
-
-                    </td>
-
-
+                                    Ver
+                                </a></td>
                     <td>
-                    @if(Auth::user()->rol == 1)
-                   
-
-                         
-
-                        
-                         </td>
-                          @endif
+                        @if($an->estatus == 0)
+                        <a class="btn btn-success btn-sm" id="{{$an->id}}" onclick="viewh(this)">
+                                    <i class="fas fa-edit">
+                                    </i>
+                                    Registrar
+                                </a>
+                                @else
+                                Registrado Por: {{$an->usuario_respuesta}}
+                                <a class="btn btn-primary btn-sm" id="{{$an->id}}" onclick="viewhs(this)">
+                                    <i class="fas fa-eye">
+                                    </i>
+                                    Ver
+                                </a>
+                                @endif
+                            </td>
                   </tr>
                   @endforeach
                  
                   </tbody>
                   <tfoot>
                   <tr>
-                  <th>id</th>
                     <th>Fecha</th>
-                    <th>Pac.</th>
-                    <th>Origen</th>
-                    <th>Det.</th>
-                    <th>Informe.</th>
+                    <th>Paciente</th>
+                    <th>Telefono</th>
+                    <th>Indicaciones</th>
                     <th>Acciones</th>
                   </tr>
-                 
                   </tfoot>
-
                 </table>
               </div>
               <!-- /.card-body -->
@@ -235,8 +169,24 @@
   </div>
   </div>
 
-    
   <div class="modal fade" id="viewTicket">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            </div>
+           
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      
+  <div class="modal fade" id="viewTicket1">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -315,13 +265,14 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<!-- page script -->
 <script type="text/javascript">
 		function viewh(e){
 		    var id = $(e).attr('id');
 		    
 		    $.ajax({
 		        type: "GET",
-		        url: "/resultados/anotar/"+id,
+		        url: "/anotaciones/registrarg/"+id,
 		        success: function (data) {
 		            $("#viewTicket .modal-body").html(data);
 		            $('#viewTicket').modal('show');
@@ -334,7 +285,46 @@
 
 	
 	</script>
-<!-- page script -->
+
+<script type="text/javascript">
+		function viewhs(e){
+		    var id = $(e).attr('id');
+		    
+		    $.ajax({
+		        type: "GET",
+		        url: "/anotaciones/ver/"+id,
+		        success: function (data) {
+		            $("#viewTicket1 .modal-body").html(data);
+		            $('#viewTicket1').modal('show');
+		        },
+		        error: function (data) {
+		            console.log('Error:', data);
+		        }
+		    });
+		}
+
+	
+	</script>
+
+<script type="text/javascript">
+		function viewhi(e){
+		    var id = $(e).attr('id');
+		    
+		    $.ajax({
+		        type: "GET",
+		        url: "/anotaciones/indicacion/"+id,
+		        success: function (data) {
+		            $("#viewTicket1 .modal-body").html(data);
+		            $('#viewTicket1').modal('show');
+		        },
+		        error: function (data) {
+		            console.log('Error:', data);
+		        }
+		    });
+		}
+
+	
+	</script>
 <script>
   $(function () {
     $("#example1").DataTable({

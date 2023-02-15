@@ -522,6 +522,14 @@ Route::get('gastoss-procesar-{id}','CreditosController@procesarg');
 Route::get('gastoss-reversar-{id}','CreditosController@reversarg');
 Route::get('gastoss-delete-{id}','CreditosController@deleteg');
 
+Route::get('resultados/anotar/{id}', 'ResultadosController@anotar');
+Route::post('resultados/anotar', 'ResultadosController@anotarPost');
+Route::get('anotaciones', 'ResultadosController@anotaciones')->name('anotaciones.index');
+Route::get('anotaciones/registrarg/{id}', 'ResultadosController@anotaG');
+Route::get('anotaciones/ver/{id}', 'ResultadosController@anotaV');
+Route::get('anotaciones/indicacion/{id}', 'ResultadosController@anotaI');
+Route::post('anotaciones/registrar', 'ResultadosController@anotaP');
+
 
 
 Route::get('download2/{filename}', function($filename)
