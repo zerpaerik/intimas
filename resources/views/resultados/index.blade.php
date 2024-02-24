@@ -145,7 +145,7 @@
                                     <select class="form-control" name="informe">
                                     <option value="">Seleccione</option>
                                     <option value="ECO TV GEST INICIAL.docx">ECO TV GEST INICIAL</option>
-                                    <option value="ECOGRAFIA ABDOMINAL TOTAL.docx">ECOGRAFIA ABDOMINAL TOTAL</option>
+                                    <option value="ECOGRAFIA ABDOMINAL TOTAL.doc">ECOGRAFIA ABDOMINAL TOTAL</option>
                                   
 
                                     <option value="ECOGRAFIA DE 29 SEMANAS.docx">ECOGRAFIA DE 29 SEMANAS</option>
