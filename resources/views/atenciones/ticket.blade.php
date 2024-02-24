@@ -41,7 +41,7 @@
 
     <div  style="font-size: 15px; text-align: center;margin-bottom:-60px;margin-top: -30px;">
  
-    <p><strong>CONSULTORIO FEMENINO INTIMAS</strong></p>
+    <p><strong>CONSULTORIO INTIMAS PARA EL Y ELLA</strong></p>
 		<p style="margin-top: -20px;"><strong>RUC: 10225155092</strong></p>
     <p style="margin-top: -10px;"><strong>Dirección: AV.Metroplitana 109 Ate (2DO PISO)</strong></p>
 		<p style="margin-top: -20px;"><strong>Teléfono: 968 481 100</strong></p>
