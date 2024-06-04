@@ -123,7 +123,18 @@
                     <td>{{$an->namee}} {{$an->laste}}</td>
                     @if($an->tipo == 1)
                     <td><span class="badge bg-success">CONSULTA</span></td>
-                  
+                    @elseif($an->tipo == 3)                    
+                    <td><span class="badge bg-success">ENDOCRINOLOGIA</span></td>
+                    @elseif($an->tipo == 4)                    
+                    <td><span class="badge bg-success">PSIQUIATRIA</span></td>  
+                    @elseif($an->tipo == 5)                    
+                    <td><span class="badge bg-success">DERMATOLOGIA</span></td> 
+                     @elseif($an->tipo == 6)                    
+                    <td><span class="badge bg-success">MEDICINA GENERAL</span></td>  
+                    @elseif($an->tipo == 7)                    
+                    <td><span class="badge bg-success">OTORRINO</span></td>  
+                    @elseif($an->tipo == 8)                    
+                    <td><span class="badge bg-success">NUTRICION</span></td>  
                     @else
                     <td><span class="badge bg-success">CONTROL</span></td>
                     @endif
