@@ -60,6 +60,8 @@
         <div class="input-group mb-3">
         <select class="form-control" name="sede">
 						              	<option value="1">PRINCIPAL</option>
+            						    <option value="2">INTIMAS 2</option>
+
                         </select>        
               <div class="input-group-append">
             <div class="input-group-text">
