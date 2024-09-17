@@ -121,7 +121,7 @@
                     <td>{{date('d-M-y H:i', strtotime($an->fecha))}}</td>
                     <td>{{$an->nombres}} {{$an->apellidos}}</td>
                     <td>{{$an->namee}} {{$an->laste}}</td>
-                    @if($an->tipo == 1)
+                      @if($an->tipo == 1)
                     <td><span class="badge bg-success">CONSULTA</span></td>
                     @elseif($an->tipo == 3)                    
                     <td><span class="badge bg-success">ENDOCRINOLOGIA</span></td>

@@ -630,7 +630,7 @@
                   <label>Tipo</label>
                         <select class="form-control" name="tipo_con">
 						              	<option value="" disabled>Seleccione</option>
-                            <option value="1">Consulta</option>
+                              <option value="1">Consulta</option>
                             <option value="2">Control</option>
                             <option value="3">Endocrinologìa</option>
                             <option value="4">Psiquiatrìa</option>
@@ -638,7 +638,6 @@
                             <option value="6">Medicina General</option>
                             <option value="7">Otorrino</option>
                             <option value="8">Nutriciòn</option>
-
                         </select>
                   </div>
                   <div class="col-md-3">
