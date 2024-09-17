@@ -732,17 +732,7 @@ class ResultadosController extends Controller
 
         File::delete(File::glob('*.docx'));
         $informe = $templateProcessor = new TemplateProcessor(public_path('modelos_informes/'.$informe));
-      /*  $resultados = ReportesController::elasticSearch($id);
-        $resultados1 = DB::table('atenciones as a')
-        ->select('a.id','a.id_paciente','a.origen_usuario','a.es_servicio','a.es_laboratorio','a.created_at','a.origen','a.id_servicio','a.pendiente','a.id_laboratorio','a.monto','a.porcentaje','a.informe','a.abono','a.resultado','b.nombres as nombrePaciente','b.apellidos as apellidoPaciente','b.fechanac','c.detalle as servicio','e.name','e.dni as dniprof','e.lastname','d.name as laboratorio','b.dni')
-        ->join('pacientes as b','b.id','a.id_paciente')
-        ->join('servicios as c','c.id','a.id_servicio')
-        ->join('analises as d','d.id','a.id_laboratorio')
-        ->join('users as e','e.id','a.origen_usuario')
-        ->whereNotIn('a.monto',[0,0.00])
-        ->where('a.resultado','=', NULL)
-        ->where('a.id','=',$id)
-        ->first();*/
+     
 
         $resultados = DB::table('resultados_servicios as a')
         ->select('a.id', 'a.id_atencion', 'a.id_servicio', 'a.informe','b.usuario', 'a.created_at', 'a.estatus','b.tipo_origen', 'b.id_paciente', 'b.id_origen', 's.nombre as servicio', 'pa.fechanac','pa.nombres', 'pa.apellidos','pa.dni', 'c.name', 'c.lastname')

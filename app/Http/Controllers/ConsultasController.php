@@ -14,6 +14,7 @@ use App\Consultas;
 use App\Metodos;
 use App\Ciexes;
 use App\Historia;
+use App\HistoriaMedicina;
 use App\AntecedentesObstetricos;
 use App\Control;
 use App\HistoriaBase;
@@ -365,7 +366,6 @@ class ConsultasController extends Controller
         //
     }
 
-
     public function historias(Request $request)
     {
 
@@ -377,7 +377,18 @@ class ConsultasController extends Controller
           ->select('a.id_paciente','a.id','a.created_at','a.reevalua','a.observacion','a.usuario_reevalua','b.nombres','b.apellidos','b.dni','b.fechanac','b.telefono','b.gradoinstruccion')
           ->join('pacientes as b','b.id','a.id_paciente')
           ->where('a.id_paciente', '=',$request->id_paciente)
+          ->orderBy('a.created_at','DESC')
           ->get(); 
+
+          
+          $historias_m = DB::table('historia_medicina as a')
+          ->select('a.id_paciente','a.id','a.created_at','b.nombres','b.apellidos','b.dni','b.fechanac','b.telefono','b.gradoinstruccion')
+          ->join('pacientes as b','b.id','a.id_paciente')
+          ->where('a.id_paciente', '=',$request->id_paciente)
+          ->orderBy('a.created_at','DESC')
+          ->get(); 
+        //  dd($historias_m);
+
   
         } else {
           //$historias = Historias::where('id_paciente','=',77777777777)->get();
@@ -387,6 +398,15 @@ class ConsultasController extends Controller
           ->join('pacientes as b','b.id','a.id_paciente')
           ->where('a.id_paciente', '=',77777777777)
           ->get(); 
+
+          
+          $historias_m = DB::table('historia_medicina as a')
+          ->select('a.id_paciente','a.id','a.created_at','b.nombres','b.apellidos','b.dni','b.fechanac','b.telefono','b.gradoinstruccion')
+          ->join('pacientes as b','b.id','a.id_paciente')
+          ->where('a.id_paciente', '=',77777777777)
+          ->get(); 
+
+        
         }
 
         if(!is_null($request->filtro)){
@@ -395,13 +415,12 @@ class ConsultasController extends Controller
         $pacientes =Pacientes::where("estatus", '=', 9)->orderby('apellidos','ASC')->get();
         }
 
-
-
-
-        return view('consultas.historias', compact('pacientes','historias'));
-
+        return view('consultas.historias', compact('pacientes','historias', 'historias_m'));
 
     }
+
+
+  
 
     public function controles(Request $request)
     {
@@ -526,10 +545,85 @@ class ConsultasController extends Controller
      
       return $pdf->stream('report-pdf'.'.pdf');
 
+    }
 
+    
+    public function historiam_crear($consulta)
+
+    {
+
+
+      $cie = Ciexes::all();
+      $cie1 = Ciexes::all();
+      $consulta = Consultas::where('id','=',$consulta)->first();
+      $hist = HistoriaBase::where('id_paciente','=',$consulta->id_paciente)->first();
+      $historias = HistoriaMedicina::where('id_paciente','=',$consulta->id_paciente)->get();
+
+      $paciente = Pacientes::where('id','=',$consulta->id_paciente)->first();
+
+        return view('consultas.historiam',compact('cie','cie1','consulta','hist','historias','paciente'));
+    }
+
+    
+    public function ver_historiasm($consulta)
+    {
+
+        $historias = HistoriaMedicina::where('id','=',$consulta)->first();
+        $hist = HistoriaBase::where('id_paciente','=',$historias->id_paciente)->first();
+        $paciente = Pacientes::where('id','=',$historias->id_paciente)->first();
+
+        return view('consultas.historiam_ver',compact('hist','historias','paciente'));
+    }
+
+    public function guardar_historiamm(Request $request)
+
+
+    {
+      $consultaf = Consultas::where('id','=',$request->consulta)->first();
+
+      $con = new HistoriaMedicina();
+      $con->id_paciente =  $consultaf->id_paciente;
+      $con->id_consulta = $consultaf->id;
+      $con->piel = $request->piel;
+      $con->torax = $request->torax;
+      $con->corazon = $request->corazon;
+      $con->abdomen = $request->abdomen;
+      $con->otros = $request->otros;
+      $con->ex_aux = $request->ex_aux;
+      $con->diag_fin = $request->diag_fin;
+      $con->cie_df = $request->cie_df;
+      $con->plan = $request->plan;
+      $con->observaciones = $request->observaciones;
+      $con->usuario = Auth::user()->id;
+      $con->save();
+
+      $con_fin = Consultas::where('id','=',$request->consulta)->first();
+      $con_fin->historia = 2;
+      $con_fin->atendido = Auth::user()->id;
+      $con_fin->save();
+
+      $usuario = DB::table('users')
+      ->select('*')
+      ->where('id','=', Auth::user()->id)
+      ->first();  
+
+
+      $at_fin = Atenciones::where('id','=',$consultaf->id_atencion)->first();
+      $at_fin->atendido = 2;
+      $at_fin->atendido_por = $usuario->lastname.' '.$usuario->name;
+      $at_fin->save();
+
+      return redirect()->action('ConsultasController@index')
+      ->with('success','Creado Exitosamente!');
 
 
     }
+
+
+
+
+
+
 
     public function reevaluarPost(Request $request)
     {

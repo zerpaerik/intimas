@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>MadreTeresa | Admin</title>
+  <title>Intimas | Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -146,27 +146,33 @@
                                     </i>
                                     Anotaciòn
                                 </a>
-                    @if($an->historia == 0)
-                    @if($an->tipo == 1)
+                          @if($an->historia == 0)
+                            @if($an->tipo == 1)
 
-                    <a class="btn btn-danger btn-sm" href="historia-crear-{{$an->id}}">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Historia
-                          </a>
-                    @else
-                    <a class="btn btn-danger btn-sm" href="control-crear-{{$an->id}}">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Control
-                    </a>
-                    @endif
-
-                    @endif
+                            <a class="btn btn-danger btn-sm" href="historia-crear-{{$an->id}}">
+                                      <i class="fas fa-pencil-alt">
+                                      </i>
+                                      Historia
+                                  </a>
+                            @elseif($an->tipo == 2)
+                            <a class="btn btn-danger btn-sm" href="control-crear-{{$an->id}}">
+                                      <i class="fas fa-pencil-alt">
+                                      </i>
+                                      Control
+                            </a>
+                            @else
+                            <a class="btn btn-danger btn-sm" href="historiam-crear-{{$an->id}}">
+                                  <i class="fas fa-pencil-alt">
+                                  </i>
+                                  Historia Med
+                              </a>
+                        
+                            @endif
+                          @endif
 
                          
 
-                        
+                  
                           </td>
                   </tr>
                   @endforeach

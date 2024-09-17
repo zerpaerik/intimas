@@ -348,6 +348,13 @@ Route::post('historiab/guardar', 'ConsultasController@guardar_historiab');
 Route::post('control/guardar', 'ConsultasController@guardar_control');
 Route::post('controlh/guardar', 'ConsultasController@guardar_controlh');
 
+Route::get('historiasm-ver-{id}', 'ConsultasController@ver_historiasm');
+Route::get('historiasm-pdf-{id}', 'ConsultasController@ver_historiasm_pdf');
+Route::get('historiam-crear-{id}', 'ConsultasController@historiam_crear');
+Route::get('historiam-ver-{id}', 'ConsultasController@historiam_ver');
+Route::post('historiamm/guardar', 'ConsultasController@guardar_historiamm');
+
+
 
 Route::get('metodos', 'MetodosController@index')->name('metodos.index');
 Route::get('metodos_llamar', 'MetodosController@llamar')->name('llamar.index');

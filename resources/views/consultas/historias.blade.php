@@ -114,7 +114,25 @@
                   </form>
               
               </div>
-              <!-- /.card-header -->
+
+              <br>
+
+
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#gin">Ginecológica</a>
+                </li>
+              
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#med">Medicina General</a>
+                </li>
+              
+              </ul>
+
+              <div class="tab-content">
+
+
+              <div class="tab-pane container active" id="gin">
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -176,6 +194,76 @@
 
                 </table>
               </div>
+              </div>
+
+           
+              <div class="tab-pane container" id="med">
+
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                   <th>Fecha</th>
+                    <th>Paciente</th>
+                    <th>DNI</th>
+                    <th>Acciones</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  
+                  @foreach($historias_m as $anm)
+                  <tr>
+                    <td>{{date('d-M-y H:i', strtotime($anm->created_at))}}</td>
+                    <td>{{$anm->apellidos}} {{$anm->nombres}}</td>
+                    <td>{{$anm->dni}}</td>
+                
+                   
+                    <td>
+                    <a class="btn btn-primary btn-sm" href="historiasm-ver-{{$anm->id}}">
+                              <i class="fas fa-eye">
+                              </i>
+                              Ver Historia
+                          </a>
+
+                       
+                       
+                          
+                          
+                        
+                        
+                  
+                    </td>
+                  
+                  </tr>
+                  @endforeach
+                 
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                  <th>Fecha</th>
+                    <th>Paciente</th>
+                    <th>DNI</th>
+                
+                    <th>Acciones</th>
+                  </tr>
+                  </tr>
+                 
+                  </tfoot>
+
+                </table>
+              </div>
+              
+              
+              </div>
+
+            </div>
+
+
+
+            
+              <!-- /.card-header -->
+             
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
@@ -309,3 +397,4 @@
 </script>
 </body>
 </html>
+
